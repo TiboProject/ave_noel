@@ -1,3 +1,11 @@
+<?php
+    require 'vendor/autoload.php';
+    use App\src\model\Client;
+
+
+?>
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -20,6 +28,7 @@
 </head>
 
 <body>
+    
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top shadow">
         <a class="navbar-brand">Blog Ave Noël</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -35,7 +44,8 @@
                 <a class="btn btn-primary" href="pagePremiereConnexion.html" role="button"><i
                         class="fas fa-sign-in-alt"></i>
                     Sign up</a>
-                <a class="btn btn-secondary" href="pageAuthentification.html" role="button">Sign in</a>
+                <a class="btn btn-secondary" href="pageAuthentification.html" role="button"><i
+                        class="fas fa-sign-in-alt"></i> Sign in</a>
             </div>
         </div>
     </nav>
