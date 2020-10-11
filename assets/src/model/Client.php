@@ -25,6 +25,38 @@
             $this->firstName=$firstName;
         }
 
+        public function getLastName(): string{
+            return $this->lastName;
+        }
+
+        public function setLastName(string $lastName){
+            $this->lastName=$lastName;
+        }
+
+        public function getEmail(): string{
+            return $this->email;
+        }
+
+        public function setEmail(string $email) {
+            $this->email=$email;
+        }
+        
+        public function getPassword(): string{
+            return $this->password;
+        }
+
+        public function setPassword(string $password) {
+            $this->password=$password;
+        }
+
+        public function getStateAdmin(): boolean{
+            return $this->isAdmin;
+        }
+
+        public function setStateAdmin(boolean $isAdmin) {
+            $this->isAdmin=$isAdmin;
+        }
+
 
     }
 
