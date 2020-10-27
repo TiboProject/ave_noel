@@ -1,6 +1,7 @@
 <?php
 
 namespace App\src\Repository;
+require_once '../vendor/autoload.php';
 use App\src\config\Database;
 
 class ClientRepository{
