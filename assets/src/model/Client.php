@@ -1,9 +1,9 @@
 <?php
 
 
-    namespace App\src\model;
-    require_once('vendor\autoload.php');
-    use App\src\config\Database;
+    namespace App\model;
+    require_once('vendor/autoload.php');
+    use App\config\Database;
 
     Class Client{
 
@@ -16,6 +16,13 @@
         private $avatarPath;
         private $lastConnection;
 
+        public function getId(): int{
+            return $this->id;
+        }
+
+        public function setId(int $id){
+            $this->id = $id;
+        }
 
         public function getFirstName(): string{
             return $this->firstName;

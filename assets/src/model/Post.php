@@ -1,9 +1,9 @@
 <?php
 
 
-    namespace App\src\model;
+    namespace App\model;
     require_once('vendor\autoload.php');
-    use App\src\config\Database;
+    use App\config\Database;
 
     Class Post{
 
@@ -15,7 +15,22 @@
         private $updated_at;
         private $deleted_at;
 
-        
+        public function getId(): int{
+            return $this->id;
+        }
+
+        public function setId(int $id){
+            $this->id=$id;
+        }
+
+        public function getIdClient(): int{
+            return $this->id_client;
+        }
+
+        public function setIdClient(int $id_client){
+            $this->id_client=$id_client;
+        }
+
         public function getContent(): string{
             return $this->content;
         }
@@ -28,9 +43,18 @@
             return $this->title;
         }
 
-        public function setTitle(string $content){
+        public function setTitle(string $title){
             $this->title=$title;
         }
+
+        public function getCreated_at(): date{
+            return $this->created_at;
+        }
+
+        public function setCreated_at(date $created_at){
+            $this->created_at=$created_at;
+        }
+
 
     }
 
