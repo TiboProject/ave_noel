@@ -6,7 +6,7 @@ use App\controler\ControlerPost;
 use App\controler\ControlerClient;
 use App\controler\ControlerDefault;
 use App\controler\ControlerComment;
-use App\controler\ControlerCreate;
+use App\controler\ControlerAuthentification;
 
 Class Router
 {
@@ -23,7 +23,10 @@ Class Router
                 } elseif($_GET['page'] === 'comment'){
                     $controller=new ControlerComment();
                     
-                } 
+                } elseif($_GET['page'] === 'authentification'){
+                    $controller=new ControlerAuthentification();
+                
+                }  
             }
             else{
                 $controller = new ControlerDefault();

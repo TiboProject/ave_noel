@@ -1,7 +1,7 @@
 <?php $css = 'index.css';?>
 <?php ob_start(); ?>
 <?php
-        while($data=$comments->fetch()){
+        while($data=$comment->fetch()){
             if(empty($data['deleted_at'])){
 
             

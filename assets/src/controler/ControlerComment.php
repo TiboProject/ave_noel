@@ -60,7 +60,7 @@ Class ControlerComment
         }
         if(isset($_GET['id'])){
             $id_comment=$_GET['id'];
-            $comments=$this->commentRepository->get_comment($id_comment);
+            $comment=$this->commentRepository->get_comment($id_comment);
             require 'assets/src/view/updateCommentView.php';
         }
     }

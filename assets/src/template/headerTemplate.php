@@ -32,14 +32,39 @@
             <div class="navbar-nav">
                 <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-link" href="?page=post&action=show">Liste des posts</a>
+                <?php
+                    if(isset($_SESSION['mail'])){
+                    
+                ?>
                 <a class="nav-link" href="#">My profile</a>
+                <?php
+                    }
+                ?>
                 <a class="nav-link" href="#">Contact</a>
                 <a class="nav-link" href="?page=post&action=create">Créer un post</a>
-                <a class="btn btn-primary" href="pagePremiereConnexion.html" role="button"><i
+                <?php
+                    if(isset($_SESSION['mail'])){
+                    
+                ?>
+                <a class="btn btn-primary" href="?page=authentification&action=deconnect" role="button"><i
+                        class="fas fa-sign-in-alt"></i>
+                    Sign out</a>
+                
+                <?php
+                    }else{
+
+                    
+                ?>
+                <a class="btn btn-primary" href="?page=authentification&action=create" role="button"><i
                         class="fas fa-sign-in-alt"></i>
                     Sign up</a>
-                <a class="btn btn-secondary" href="pageAuthentification.html" role="button"><i
-                        class="fas fa-sign-in-alt"></i> Sign in</a>
+                <a class="btn btn-secondary" href="?page=authentification&action=connect" role="button"><i
+                        class="fas fa-sign-in-alt"></i>
+                    Sign in</a>
+                <?php
+                    }
+                ?>
+
             </div>
         </div>
     </nav>
