@@ -24,7 +24,7 @@
     <?php
         }
     }
-    $comments->closeCursor();
+    $comment->closeCursor();
     ?>
     <?php $content = ob_get_clean(); ?>
     <?php require('assets/src/template/headerTemplate.php'); ?>
