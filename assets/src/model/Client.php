@@ -10,6 +10,7 @@
         private $id;
         private $firstName;
         private $lastName;
+        private $username;
         private $email;
         private $password;
         private $isAdmin;
@@ -40,6 +41,14 @@
             $this->lastName=$lastName;
         }
 
+        public function getUsername(): string{
+            return $this->username;
+        }
+
+        public function setUsername(string $username){
+            $this->username = $username;
+        }
+
         public function getEmail(): string{
             return $this->email;
         }
@@ -56,11 +65,11 @@
             $this->password=$password;
         }
 
-        public function getStateAdmin(): boolean{
+        public function getStateAdmin(): bool{
             return $this->isAdmin;
         }
 
-        public function setStateAdmin(boolean $isAdmin) {
+        public function setStateAdmin( bool $isAdmin) {
             $this->isAdmin=$isAdmin;
         }
 
