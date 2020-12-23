@@ -30,7 +30,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <div class="navbar-nav">
-                <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" class="fst-italic" href="index.php">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-link" href="?page=post&action=show">Liste des posts</a>
                 <?php
                     if(isset($_SESSION['mail'])){

@@ -19,11 +19,11 @@
                     </p>
                     <footer class="blockquote-footer">
                         <p> 
-                            <?= htmlspecialchars($data['username'])?> 
+                        <i class="fas fa-at"></i> <?= htmlspecialchars($data['username'])?> 
                         </p>
                     <cite title="Source Title">
                         <p> 
-                            Le <?= htmlspecialchars($data['date'])?>
+                        <i class="far fa-clock"></i> Le <?= htmlspecialchars($data['date'])?>
                             </p>
                         </cite>
                         <?php
@@ -62,10 +62,18 @@
                     </div>
                     <div class="card-body">
                         <p class="card-text">
+                        
                             <?= htmlspecialchars($data['content'])?>
                         </p>
-                        <a href="?page=comment&action=update&id=<?=$data['id'];?>" class="card-link">Modifier</a>
-                        <a href="?page=comment&action=delete&id=<?=$data['id'];?>"class="card-link">Supprimer</a>
+                        <?php
+                            if(isset($_SESSION['mail'])&& ($_SESSION["mail"]) !=null){
+                    
+                        ?>
+                        <i style="color:#007bff" class="fas fa-pencil-alt"></i> <a href="?page=comment&action=update&id=<?=$data['id'];?>" class="card-link">Modifier</a>
+                        <i style="color:#007bff" class="far fa-trash-alt"></i> <a href="?page=comment&action=delete&id=<?=$data['id'];?>"class="card-link">Supprimer</a>
+                        <?php
+                            }
+                        ?>
                     </div>
                         <?php
                             }

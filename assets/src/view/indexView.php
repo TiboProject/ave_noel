@@ -10,7 +10,7 @@
         <div class="row">
             <div class="card" style="width: 70%;margin:0 auto;margin-top: 10px;">
                 <div class="card-header">
-                    <?= htmlspecialchars($data['title']) ?>
+                <h3 class="fst-italic"> <?= htmlspecialchars($data['title']) ?></h3>
                 </div>
                 <div class="card-body">
                     <blockquote class="blockquote mb-0">
@@ -19,11 +19,11 @@
                         </p>
                         <footer class="blockquote-footer">
                             <p> 
-                                <?= htmlspecialchars($data['username'])?> 
+                            <i class="fas fa-at"></i> <?= htmlspecialchars($data['username'])?> 
                             </p>
                         <cite title="Created at">
                             <p> 
-                                Le <?= htmlspecialchars($data['date'])?>
+                            <i class="far fa-clock"></i> Le <?= htmlspecialchars($data['date'])?>
                             </p>
                         </cite>
                         <?php
@@ -40,11 +40,11 @@
                         ?>
                         </footer>
                     </blockquote>
-                    <a href="?page=comment&id=<?=$data['id'];?>" class="card-link">Commentaire(s)</a>
-                    <a href="?page=post&action=read&id=<?=$data['id'];?>" class="card-link">Lire ce post</a>
-                    <a href="?page=post&action=update&id=<?=$data['id'];?>" class="card-link">Modifier</a>
-                    <a href="?page=post&action=delete&id=<?=$data['id'];?>" class="card-link">Supprimer</a>
-                    <a href="?page=comment&action=create&id=<?=$data['id'];?>" class="card-link">Ajouter un commentaire</a>
+                    <i style="color:#007bff" class="far fa-comments"> </i> <a href="?page=comment&id=<?=$data['id'];?>" class="card-link">Commentaire(s) | </a>
+                    <i style="color:#007bff" class="fas fa-book"></i> <a href="?page=post&action=read&id=<?=$data['id'];?>" class="card-link">Lire ce post | </a>
+                    <i style="color:#007bff" class="fas fa-pencil-alt"></i> <a href="?page=post&action=update&id=<?=$data['id'];?>" class="card-link">Modifier | </a>
+                    <i style="color:#007bff" class="far fa-trash-alt"></i> <a href="?page=post&action=delete&id=<?=$data['id'];?>" class="card-link">Supprimer | </a>
+                    <i style="color:#007bff" class="fas fa-plus-circle"></i> <a href="?page=comment&action=create&id=<?=$data['id'];?>" class="card-link">Ajouter un commentaire</a>
                 </div>
             </div>  
         </div>
