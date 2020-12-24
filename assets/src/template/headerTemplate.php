@@ -17,6 +17,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+        
     <script src="https://kit.fontawesome.com/3bb82678d4.js" defer crossorigin="anonymous"></script>
 </head>
 
@@ -30,25 +31,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <div class="navbar-nav">
-                <a class="nav-link"  href="index.php">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link"  href="index.php">Accueil <span class="sr-only">(current)</span></a>
                 <a class="nav-link" href="?page=post&action=show">Liste des posts</a>
                 <?php
                     if(isset($_SESSION['mail'])){
                     
                 ?>
-                <a class="nav-link" href="#">My profile</a>
+                <a class="nav-link" href="?page=profile&action=show">Mon profil</a>
+                <a class="nav-link" href="?page=post&action=create">Créer un post</a>
                 <?php
                     }
                 ?>
-                <a class="nav-link" href="#">Contact</a>
-                <a class="nav-link" href="?page=post&action=create">Créer un post</a>
                 <?php
                     if(isset($_SESSION['mail'])){
                     
                 ?>
                 <a class="btn btn-primary" href="?page=authentification&action=deconnect" role="button"><i
                         class="fas fa-sign-in-alt"></i>
-                    Sign out</a>
+                    Se déconnecter</a>
                 
                 <?php
                     }else{
@@ -57,10 +57,10 @@
                 ?>
                 <a class="btn btn-primary" href="?page=authentification&action=create" role="button"><i
                         class="fas fa-sign-in-alt"></i>
-                    Sign up</a>
+                    Se créer un compte</a>
                 <a class="btn btn-secondary" href="?page=authentification&action=connect" role="button"><i
                         class="fas fa-sign-in-alt"></i>
-                    Sign in</a>
+                    Se connecter</a>
                 <?php
                     }
                 ?>

@@ -8,13 +8,13 @@ Class ControlerClient
 
     private $clientRepository;
 
-    public function __construct(){
+    public function __construct()
+    {
         if(!isset($this->clientRepository)){
             $this->clienttRepository = new ClientRepository();
         }
     }
     
-
     public function list()
     {
         $clients = $this->clientRepository->get_clients();
@@ -27,15 +27,18 @@ Class ControlerClient
 
     }
 
-    public function read(){
+    public function read()
+    {
 
     }
 
-    public function update(){
+    public function update()
+    {
 
     }
 
-    public function delete(){
+    public function delete()
+    {
             
     }
 }

@@ -72,7 +72,14 @@
         public function setStateAdmin( bool $isAdmin) {
             $this->isAdmin=$isAdmin;
         }
+        
+        public function getLastConnection(): string{
+            return $this->lastConnection;
+        }
 
+        public function setlastConnection(string $lastConnection){
+            $this->lastConnection=$lastConnection;
+        }
 
     }
 

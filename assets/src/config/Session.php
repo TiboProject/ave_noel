@@ -12,7 +12,6 @@ Class Session{
         if(isset($_SESSION[$name])){
             return $_SESSION[$name];
         }
-        
     }
 
     public function showFlashMessage($name){
@@ -31,5 +30,4 @@ Class Session{
     public function stop(){
         session_destroy();
     }
-
 }

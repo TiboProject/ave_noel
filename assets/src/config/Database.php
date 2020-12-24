@@ -20,7 +20,7 @@
                 $this->connection = new \PDO(self::DB_HOST, self::DB_USER, self::DB_PASSWORD);
                 return $this->connection;
             }catch(PDOException $exception){
-              die("Erreur : " . $exception->getMessage()."<br>");
+            	die("Erreur : " . $exception->getMessage()."<br>");
             }
         }
 

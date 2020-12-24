@@ -5,7 +5,6 @@
             if(empty($data['deleted_at']));
  ?>
 
- <a href="?page=post&action=show" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Retour à la liste des posts</a>
     <div class="container">
         <div class="row">
         <div class="card" style="width: 70%;margin:0 auto;margin-top: 10px;">
@@ -38,6 +37,13 @@
                             }
                         ?>
                         </footer>
+                        <?php
+                            if(isset($_SESSION['id'])){
+                        ?>
+                        <i style="color:#007bff" class="fas fa-plus-circle"></i> <a href="?page=comment&action=create&id=<?=$data['id'];?>" class="card-link">Ajouter un commentaire</a>
+                        <?php
+                            }
+                        ?>
                     </blockquote>
                 </div>
 <?php

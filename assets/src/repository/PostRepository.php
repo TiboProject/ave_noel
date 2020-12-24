@@ -5,10 +5,11 @@ require_once 'vendor/autoload.php';
 use App\config\Database;
 use App\model\Post;
 
-class PostRepository{
+class PostRepository
+{
 
-    public function get_posts(){
-
+    public function get_posts()
+    {
         $database = new Database();
         $conn = $database->checkConnection();
         $result = $conn->query('SELECT cli.username, post.content, post.title, post.id, deleted_at, post.id_client,  
@@ -19,11 +20,11 @@ class PostRepository{
         return $result;
     }
 
-    public function get_post(int $id_post){
-
+    public function get_post(int $id_post)
+    {
         $database = new Database();
         $conn = $database->checkConnection();
-        $result = $conn->prepare('SELECT cli.username, post.content, post.title, post.id, post.deleted_at, post.id,
+        $result = $conn->prepare('SELECT cli.username, post.content, post.title, post.id, post.deleted_at, post.id, post.id_client,
                                   DATE_FORMAT(post.created_at, \'%d/%m/%Y à %Hh%imin%ss\') AS date,
                                   DATE_FORMAT(post.updated_at, \'%d/%m/%Y à %Hh%imin%ss\') AS date_modif 
                                   FROM post  
@@ -33,7 +34,8 @@ class PostRepository{
         return $result;
     }
 
-    public function add_post(Post $post){
+    public function add_post(Post $post)
+    {
         $database = new Database();
         $conn = $database->checkConnection();
         $result = $conn->prepare('INSERT INTO post (id_client, content, title, created_at, updated_at, deleted_at)
@@ -48,7 +50,8 @@ class PostRepository{
     }
 
 
-    public function update_post(Post $post){
+    public function update_post(Post $post)
+    {
         $database = new Database();
         $conn = $database->checkConnection();
         $result = $conn->prepare('UPDATE post SET title = :title, content = :content, updated_at = :updated_at WHERE id = :id_post');
@@ -59,7 +62,8 @@ class PostRepository{
         $result->execute();
     }
 
-    public function delete_post(int $id_post){
+    public function delete_post(int $id_post)
+    {
         $database = new Database();
         $conn = $database->checkConnection();
         $result = $conn->prepare('UPDATE post SET deleted_at = :deleted_at WHERE id = :id_post');

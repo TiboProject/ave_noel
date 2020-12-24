@@ -11,7 +11,8 @@ Class ControlerComment
     private $commentRepository;
     private $postRepository;
 
-    public function __construct(){
+    public function __construct()
+    {
         if(!isset($this->commentRepository)){
             $this->commentRepository = new CommentRepository();
         }
@@ -21,14 +22,15 @@ Class ControlerComment
         }
     }
 
-    public function show(){
+    public function show()
+    {
         $resultPost = $this->postRepository->get_post($_GET['id']);
         $resultComment = $this->commentRepository->get_comments($_GET['id']);
         require('assets/src/view/commentView.php');
     }
 
-    public function create(){
-
+    public function create()
+    {
         if($_SERVER['REQUEST_METHOD'] === 'POST'){ ///On vérifie qu'il a submit ou pas
             $comment =new Comment();
             $comment->setIdClient($_POST['idClient']);
@@ -40,16 +42,18 @@ Class ControlerComment
         }
 
         if(isset($_GET['id'])){
+            $resultPost = $this->postRepository->get_post($_GET['id']);
             require 'assets/src/view/createCommentView.php';
         }
-        
     }
 
-    public function read(){
+    public function read()
+    {
 
     }
 
-    public function update(){
+    public function update()
+    {
         if($_SERVER['REQUEST_METHOD'] === 'POST'){ ///On vérifie qu'il a submit ou pas
             $comment =new Comment();
             $comment->setContent($_POST['content']);

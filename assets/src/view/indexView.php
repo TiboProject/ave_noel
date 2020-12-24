@@ -52,7 +52,15 @@
                         }
                     
                     ?>
+                    <?php
+                            if(isset($_SESSION['id'])){
+                    
+                    ?>
                     <i style="color:#007bff" class="fas fa-plus-circle"></i> <a href="?page=comment&action=create&id=<?=$data['id'];?>" class="card-link">Ajouter un commentaire</a>
+                    <?php
+                        }
+                    
+                    ?>
                 </div>
             </div>  
         </div>

@@ -9,7 +9,8 @@ Class ControlerPost
 
     private $postRepository;
 
-    public function __construct(){
+    public function __construct()
+    {
         if(!isset($this->postRepository)){
             $this->postRepository = new PostRepository();
         }
@@ -32,6 +33,7 @@ Class ControlerPost
             $this->postRepository->add_post($post);
             header('Location: index.php?page=post&action=show');
         }
+        
         require 'assets/src/view/createPostView.php';
         
 

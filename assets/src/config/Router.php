@@ -7,6 +7,7 @@ use App\controler\ControlerClient;
 use App\controler\ControlerDefault;
 use App\controler\ControlerComment;
 use App\controler\ControlerAuthentification;
+use App\controler\ControlerProfile;
 
 Class Router
 {
@@ -26,7 +27,9 @@ Class Router
                 } elseif($_GET['page'] === 'authentification'){
                     $controller=new ControlerAuthentification();
                 
-                }  
+                } elseif($_GET['page'] === 'profile'){
+                    $controller=new ControlerProfile();                
+                }    
             }
             else{
                 $controller = new ControlerDefault();
@@ -42,5 +45,4 @@ Class Router
             throw new \Exception('Error occured') ;
         }
     }
-
 }

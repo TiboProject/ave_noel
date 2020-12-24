@@ -8,15 +8,16 @@ use App\model\Client;
 
 class ClientRepository{
 
-    public function get_clients(){
-
+    public function get_clients()
+    {
         $database=new Database();
         $conn=$database->checkConnection();
         $result = $conn->query('SELECT * FROM client');
         return $result->fetchAll();
     }
 
-    public function add_client(Client $client){
+    public function add_client(Client $client)
+    {
         $database = new Database();
         $conn = $database->checkConnection();
         $result = $conn->prepare('INSERT INTO client (username, mail, nom, prenom, password, isadmin, avatar_path, last_connection_at)
@@ -32,8 +33,8 @@ class ClientRepository{
         $result->execute();
     }
 
-    public function get_password_client(string $mail){
-
+    public function get_password_client(string $mail)
+    {
         $database = new Database();
         $conn = $database->checkConnection();
         $result = $conn->prepare('SELECT password
@@ -44,8 +45,8 @@ class ClientRepository{
         return $result->fetch();
     }
 
-    public function get_id_client(string $mail){
-
+    public function get_id_client(string $mail)
+    {
         $database = new Database();
         $conn = $database->checkConnection();
         $result = $conn->prepare('SELECT id
@@ -56,7 +57,56 @@ class ClientRepository{
         return $result->fetch();
     }
 
-    public function client_connection(Client $client){
+    public function get_last_name_client(string $mail)
+    {
+        $database = new Database();
+        $conn = $database->checkConnection();
+        $result = $conn->prepare('SELECT nom
+                                  FROM client  
+                                  WHERE mail = :mail');
+        $result->bindValue(':mail',$mail,\PDO::PARAM_STR);
+        $result->execute();
+        return $result->fetch();
+    }
+
+    public function get_first_name_client(string $mail)
+    {
+        $database = new Database();
+        $conn = $database->checkConnection();
+        $result = $conn->prepare('SELECT prenom
+                                  FROM client  
+                                  WHERE mail = :mail');
+        $result->bindValue(':mail',$mail,\PDO::PARAM_STR);
+        $result->execute();
+        return $result->fetch();
+    }
+
+    public function get_username_client(string $mail)
+    {
+        $database = new Database();
+        $conn = $database->checkConnection();
+        $result = $conn->prepare('SELECT username
+                                  FROM client  
+                                  WHERE mail = :mail');
+        $result->bindValue(':mail',$mail,\PDO::PARAM_STR);
+        $result->execute();
+        return $result->fetch();
+    }
+
+    public function get_last_connection_client(string $mail)
+    {
+        $database = new Database();
+        $conn = $database->checkConnection();
+        $result = $conn->prepare('SELECT DATE_FORMAT(last_connection_at, \'%d/%m/%Y à %Hh%imin%ss\') AS last_connection
+                                  FROM client  
+                                  WHERE mail = :mail');
+        $result->bindValue(':mail',$mail,\PDO::PARAM_STR);
+        $result->execute();
+        return $result->fetch();
+    }
+
+    public function client_connection(Client $client)
+    {
         $database = new Database();
         $conn = $database->checkConnection();
         $result = $conn->prepare('UPDATE client SET last_connection_at = :last_connection_at WHERE mail = :mail');

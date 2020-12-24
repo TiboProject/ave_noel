@@ -7,16 +7,16 @@ use App\config\Database;
 use App\model\Comment;
 class CommentRepository{
 
-    public function get_all_comments(){
-
+    public function get_all_comments()
+    {
         $database=new Database();
         $conn=$database->checkConnection();
         $result = $conn->query('SELECT * FROM comment');
         return $result;
     }
 
-    public function get_comments($id_post){
-        
+    public function get_comments($id_post)
+    {   
         $database=new Database();
         $conn=$database->checkConnection();
         $result = $conn->prepare('SELECT cli.username, comment.id_post,
@@ -32,8 +32,8 @@ class CommentRepository{
 
     }
 
-    public function get_comment(int $id_comment){
-
+    public function get_comment(int $id_comment)
+    {
         $database = new Database();
         $conn = $database->checkConnection();
         $result = $conn->prepare('SELECT cli.username, comment.content, comment.deleted_at, comment.id, comment.id_client,
@@ -46,7 +46,8 @@ class CommentRepository{
         return $result;
     }
 
-    public function add_comment(Comment $comment){
+    public function add_comment(Comment $comment)
+    {
         $database=new Database();
         $conn=$database->checkConnection();
         $result = $conn->prepare('INSERT INTO comment (id_client, id_post, content, created_at, updated_at, deleted_at)
@@ -61,7 +62,8 @@ class CommentRepository{
 
     }
 
-    public function update_comment(Comment $comment){
+    public function update_comment(Comment $comment)
+    {
         $database = new Database();
         $conn = $database->checkConnection();
         $result = $conn->prepare('UPDATE comment SET content = :content, updated_at = :updated_at WHERE id = :id_comment');
@@ -71,7 +73,8 @@ class CommentRepository{
         $result->execute();
     }
 
-    public function delete_comment(int $id_comment){
+    public function delete_comment(int $id_comment)
+    {
         $database = new Database();
         $conn = $database->checkConnection();
         $result = $conn->prepare('UPDATE comment SET deleted_at = :deleted_at WHERE id = :id_comment');
