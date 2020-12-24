@@ -44,6 +44,18 @@ class ClientRepository{
         return $result->fetch();
     }
 
+    public function get_id_client(string $mail){
+
+        $database = new Database();
+        $conn = $database->checkConnection();
+        $result = $conn->prepare('SELECT id
+                                  FROM client  
+                                  WHERE mail = :mail');
+        $result->bindValue(':mail',$mail,\PDO::PARAM_STR);
+        $result->execute();
+        return $result->fetch();
+    }
+
     public function client_connection(Client $client){
         $database = new Database();
         $conn = $database->checkConnection();

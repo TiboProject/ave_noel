@@ -66,7 +66,7 @@
                             <?= htmlspecialchars($data['content'])?>
                         </p>
                         <?php
-                            if(isset($_SESSION['mail'])&& ($_SESSION["mail"]) !=null){
+                            if(isset($_SESSION['id']) && ($_SESSION["id"]==$data['id_client'])){
                     
                         ?>
                         <i style="color:#007bff" class="fas fa-pencil-alt"></i> <a href="?page=comment&action=update&id=<?=$data['id'];?>" class="card-link">Modifier</a>

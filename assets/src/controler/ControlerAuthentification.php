@@ -50,6 +50,9 @@ Class ControlerAuthentification{
             if(password_verify($password_sent, $password_db['password'])==true){
                 $this->clientRepository->client_connection($client);
                 $this->session->set('mail',$client->getEmail());
+                $id_client = $this->clientRepository->get_id_client($client->getEmail());
+                $client->setId($id_client["id"]);
+                $this->session->set('id',$client->getId());
                 header('Location: index.php?page=post&action=show');    
             }
             

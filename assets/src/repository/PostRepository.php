@@ -11,7 +11,7 @@ class PostRepository{
 
         $database = new Database();
         $conn = $database->checkConnection();
-        $result = $conn->query('SELECT cli.username, post.content, post.title, post.id, deleted_at, 
+        $result = $conn->query('SELECT cli.username, post.content, post.title, post.id, deleted_at, post.id_client,  
                                 DATE_FORMAT(post.created_at, \'%d/%m/%Y à %Hh%imin%ss\') AS date,
                                 DATE_FORMAT(post.updated_at, \'%d/%m/%Y à %Hh%imin%ss\') AS date_modif
                                 FROM post  

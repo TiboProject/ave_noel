@@ -42,8 +42,16 @@
                     </blockquote>
                     <i style="color:#007bff" class="far fa-comments"> </i> <a href="?page=comment&id=<?=$data['id'];?>" class="card-link">Commentaire(s) | </a>
                     <i style="color:#007bff" class="fas fa-book"></i> <a href="?page=post&action=read&id=<?=$data['id'];?>" class="card-link">Lire ce post | </a>
+                    <?php
+                            if(isset($_SESSION['id']) && ($_SESSION["id"]==$data['id_client'])){
+                    
+                    ?>
                     <i style="color:#007bff" class="fas fa-pencil-alt"></i> <a href="?page=post&action=update&id=<?=$data['id'];?>" class="card-link">Modifier | </a>
                     <i style="color:#007bff" class="far fa-trash-alt"></i> <a href="?page=post&action=delete&id=<?=$data['id'];?>" class="card-link">Supprimer | </a>
+                    <?php
+                        }
+                    
+                    ?>
                     <i style="color:#007bff" class="fas fa-plus-circle"></i> <a href="?page=comment&action=create&id=<?=$data['id'];?>" class="card-link">Ajouter un commentaire</a>
                 </div>
             </div>  

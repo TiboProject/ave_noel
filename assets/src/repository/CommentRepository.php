@@ -20,7 +20,7 @@ class CommentRepository{
         $database=new Database();
         $conn=$database->checkConnection();
         $result = $conn->prepare('SELECT cli.username, comment.id_post,
-                                  comment.content, comment.created_at, comment.deleted_at, comment.id,
+                                  comment.content, comment.created_at, comment.deleted_at, comment.id, comment.id_client,
                                   DATE_FORMAT(comment.created_at, \'%d/%m/%Y à %Hh%imin%ss\') AS date,
                                   DATE_FORMAT(comment.updated_at, \'%d/%m/%Y à %Hh%imin%ss\') AS date_modif
                                   FROM comment 
@@ -36,7 +36,7 @@ class CommentRepository{
 
         $database = new Database();
         $conn = $database->checkConnection();
-        $result = $conn->prepare('SELECT cli.username, comment.content, comment.deleted_at, comment.id,
+        $result = $conn->prepare('SELECT cli.username, comment.content, comment.deleted_at, comment.id, comment.id_client,
                                   DATE_FORMAT(comment.created_at, \'%d/%m/%Y à %Hh%imin%ss\') AS date,
                                   DATE_FORMAT(comment.updated_at, \'%d/%m/%Y à %Hh%imin%ss\') AS date_modif 
                                   FROM comment  
