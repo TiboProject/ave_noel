@@ -41,7 +41,14 @@
                         </footer>
                     </blockquote>
                     <i style="color:#007bff" class="far fa-comments"> </i> <a href="?page=comment&id=<?=$data['id'];?>" class="card-link">Commentaire(s) | </a>
+                    <?php
+                    if(!isset($_GET['id'])){
+                    ?>
                     <i style="color:#007bff" class="fas fa-book"></i> <a href="?page=post&action=read&id=<?=$data['id'];?>" class="card-link">Lire ce post | </a>
+                    <?php
+
+                    }
+                    ?>
                     <?php
                             if(isset($_SESSION['id']) && ($_SESSION["id"]==$data['id_client'])){
                     
